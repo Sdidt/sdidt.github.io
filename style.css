@@ -26,7 +26,26 @@ p { margin: 0 0 17px; }
 a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
 a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 1px; }
-.portrait { display: block; width: 220px; height: 260px; margin-top: 5px; object-fit: cover; object-position: center; border-radius: 4px; background: #eff3f5; }
+.portrait-frame {
+  position: relative;
+  width: 220px;
+  aspect-ratio: 4 / 5;
+  margin-top: 5px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #eff3f5;
+}
+/* Crop this particular photo around Sid without altering the source image.
+   The same proportions apply to the smaller mobile frame. */
+.portrait {
+  position: absolute;
+  display: block;
+  width: 300%;
+  max-width: none;
+  height: auto;
+  left: -110%;
+  top: -155%;
+}
 section { margin-top: 45px; }
 .paper-list { margin: 0; padding: 0; list-style: none; }
 .paper-list li { margin: 0 0 27px; }
@@ -42,7 +61,7 @@ section { margin-top: 45px; }
 @media (max-width: 700px) {
   .page { padding: 32px 23px 52px; }
   .intro { grid-template-columns: 1fr; gap: 24px; }
-  .portrait { width: 170px; height: 200px; margin-top: 0; }
+  .portrait-frame { width: 170px; margin-top: 0; }
   section { margin-top: 35px; }
 }
 @media print {
