@@ -1,0 +1,53 @@
+:root {
+  --ink: #252a30;
+  --muted: #626a73;
+  --link: #165f92;
+  --rule: #e2e7eb;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 1000px; margin: 0 auto; padding: 68px 36px 80px; }
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 46px; align-items: start; }
+h1, h2, h3 { line-height: 1.25; }
+h1 { margin: 0 0 25px; font-size: clamp(1.8rem, 3.8vw, 2.25rem); font-weight: 500; letter-spacing: -.025em; }
+h2 { margin: 0 0 24px; padding-bottom: 11px; border-bottom: 1px solid var(--rule); font-size: 1.45rem; font-weight: 500; }
+h3 { margin: 0 0 7px; font-size: 1.08rem; font-weight: 600; }
+p { margin: 0 0 17px; }
+.bio p:last-child { margin-bottom: 0; }
+a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 1px; }
+.portrait { display: block; width: 220px; height: 260px; margin-top: 5px; object-fit: cover; object-position: center; border-radius: 4px; background: #eff3f5; }
+section { margin-top: 45px; }
+.paper-list { margin: 0; padding: 0; list-style: none; }
+.paper-list li { margin: 0 0 27px; }
+.paper-list li:last-child { margin-bottom: 0; }
+.authors { margin: 0 0 4px; font-size: .96rem; line-height: 1.6; }
+.authors strong { font-weight: 600; }
+.venue { margin: 0; font-size: .94rem; }
+.muted { color: var(--muted); }
+.separator { color: var(--muted); margin: 0 6px; }
+.activity-list { padding-left: 22px; }
+.skip-link { position: absolute; top: 10px; left: 10px; padding: 8px 12px; background: white; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+@media (max-width: 700px) {
+  .page { padding: 32px 23px 52px; }
+  .intro { grid-template-columns: 1fr; gap: 24px; }
+  .portrait { width: 170px; height: 200px; margin-top: 0; }
+  section { margin-top: 35px; }
+}
+@media print {
+  .page { padding: 0; max-width: none; }
+  a { color: inherit; }
+  .skip-link { display: none; }
+  .paper-list li { break-inside: avoid; }
+}
